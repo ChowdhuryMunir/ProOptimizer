@@ -35,24 +35,24 @@ jobs:
       - name: Patch build files
         run: |
           cat > "$PROJECT_DIR/build.gradle" << 'EOF'
-buildscript {
-    ext.kotlin_version = '1.9.0'
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-EOF
+          buildscript {
+          ext.kotlin_version = '1.9.0'
+          repositories {
+          google()
+          mavenCentral()
+          }
+           dependencies {
+            classpath 'com.android.tools.build:gradle:8.1.0'
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+           }
+          }
+          allprojects {
+          repositories {
+           google()
+           mavenCentral()
+            }
+           }
+           EOF
 
           cat > "$PROJECT_DIR/app/build.gradle" << 'EOF'
 plugins {
